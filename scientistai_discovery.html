@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientist AI — Scientifc Discovery Experiment Example</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+
+  <script async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+ <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+  
+  <section class="experiment-card">
+
+  <div class="eyebrow">
+    Meta-Science · Autonomous Scientific Discovery
+  </div>
+
+  <h1>
+    Closed-Loop Autonomous Hypothesis Generation and Experimental Discovery Platform
+  </h1>
+
+  <p class="lead">
+    A multidisciplinary research institute develops an autonomous scientific discovery platform designed to assist researchers in generating hypotheses, prioritizing experiments, allocating laboratory resources, and progressively constructing mechanistic scientific theories. The system continuously integrates heterogeneous streams of scientific information: experimental outcomes, scientific literature, simulation outputs, laboratory sensor data, prior mechanistic models, and negative experimental results. Rather than merely predicting outcomes or optimizing isolated tasks, the objective is to accelerate the entire scientific discovery cycle itself: reducing uncertainty, identifying causal mechanisms, discriminating competing theories, discovering anomalous phenomena, and adaptively designing informative future experiments. However, scientific discovery unfolds in partially observable and open-ended environments where hypotheses may be incomplete, inconsistent, or entirely absent from existing knowledge representations. Furthermore, experiments may interact across multiple scientific domains and temporal scales, while available budgets, ethical constraints, and laboratory throughput remain limited. The experiment therefore becomes a recursive sequential decision problem under epistemic uncertainty, where autonomous systems must continuously balance exploration of novel hypotheses, validation of existing theories, scientific risk management, and efficient allocation of experimental resources.
+  </p>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Experimental Workflow
+      </h2>
+
+      <ul>
+
+        <li>
+          Aggregate multimodal scientific observations from experiments, simulations, and literature.
+        </li>
+
+        <li>
+          Construct and update probabilistic mechanistic hypotheses explaining observed phenomena.
+        </li>
+
+        <li>
+          Identify inconsistencies, anomalies, or regions of high epistemic uncertainty.
+        </li>
+
+        <li>
+          Select candidate experiments expected to maximize scientific information gain.
+        </li>
+
+        <li>
+          Allocate laboratory resources, cohorts, and instrumentation under operational constraints.
+        </li>
+
+        <li>
+          Observe experimental outcomes and update causal or mechanistic models.
+        </li>
+
+        <li>
+          Iteratively refine scientific theories and future experimentation strategies.
+        </li>
+
+      </ul>
+
+      <div class="tag-list">
+
+        <div class="tag">Bayesian Experimental Design</div>
+
+        <div class="tag">Curiosity-Driven RL</div>
+
+        <div class="tag">Active Learning</div>
+
+        <div class="tag">Causal Discovery</div>
+
+        <div class="tag">Open-Ended Exploration</div>
+
+        <div class="tag">Epistemic Uncertainty</div>
+
+      </div>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        RL / Statistical Formalization
+      </h2>
+
+      <p>
+        Let:
+      </p>
+
+      <div class="math-box">
+
+        $$
+        s_t =
+        (\mathcal{H}_t, \mathcal{D}_t, \mathcal{U}_t, \mathcal{R}_t)
+        $$
+
+        denote the scientific knowledge state at iteration $t$, where:
+
+        <ul>
+
+          <li>
+            $\mathcal{H}_t$: current hypothesis space,
+          </li>
+
+          <li>
+            $\mathcal{D}_t$: accumulated experimental observations,
+          </li>
+
+          <li>
+            $\mathcal{U}_t$: uncertainty and anomaly structure,
+          </li>
+
+          <li>
+            $\mathcal{R}_t$: available scientific resources and constraints.
+          </li>
+
+        </ul>
+
+        <br>
+
+        The autonomous discovery system selects:
+
+        $$
+        a_t =
+        (E_t, M_t, Q_t)
+        $$
+
+        where:
+
+        <ul>
+
+          <li>
+            $E_t$: candidate experiments,
+          </li>
+
+          <li>
+            $M_t$: mechanistic model updates,
+          </li>
+
+          <li>
+            $Q_t$: scientific questions or exploration priorities.
+          </li>
+
+        </ul>
+
+        <br>
+
+        Experimental outcomes evolve according to partially unknown scientific processes:
+
+        $$
+        o_t \sim P(\cdot \mid s_t, a_t)
+        $$
+
+        where causal mechanisms themselves may be uncertain or only partially represented.
+
+        <br><br>
+
+        A simplified scientific utility function may combine:
+
+        $$
+        r_t =
+        \alpha I_t
+        +
+        \beta C_t
+        +
+        \gamma N_t
+        -
+        \delta K_t
+        -
+        \epsilon R_t
+        $$
+
+        where:
+
+        <ul>
+
+          <li>
+            $I_t$: information gain and uncertainty reduction,
+          </li>
+
+          <li>
+            $C_t$: causal or mechanistic explanatory power,
+          </li>
+
+          <li>
+            $N_t$: novelty and anomalous discovery value,
+          </li>
+
+          <li>
+            $K_t$: scientific inconsistency or model complexity,
+          </li>
+
+          <li>
+            $R_t$: experimental cost and resource consumption.
+          </li>
+
+        </ul>
+
+        <br>
+
+        The adaptive scientific objective becomes:
+
+        $$
+        \max_{\pi}
+        \mathbb{E}
+        \left[
+        \sum_{t=1}^{T}
+        r_t
+        \right]
+        $$
+
+        while preserving scientific validity, reproducibility, and safety constraints.
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Experimental Constraints
+      </h2>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Open-Ended Hypothesis Space Constraint
+        </div>
+
+        The space of plausible scientific hypotheses may be effectively unbounded and continuously evolving.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Epistemic Uncertainty Constraint
+        </div>
+
+        Many relevant mechanisms, variables, or causal structures may remain entirely unknown.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Resource Allocation Constraint
+        </div>
+
+        Laboratory throughput, funding, cohorts, instrumentation time, and computational budgets remain limited.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Multi-Scale Temporal Constraint
+        </div>
+
+        Some experiments produce feedback within minutes, while others require months or years.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Scientific Reproducibility Constraint
+        </div>
+
+        Proposed discoveries must remain robust across repeated experimental conditions.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Safety and Ethical Constraint
+        </div>
+
+        Certain experiments may involve biological, environmental, or societal risks.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Cross-Domain Dependency Constraint
+        </div>
+
+        Discoveries in one scientific field may influence hypotheses in distant domains.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Human Interpretability Constraint
+        </div>
+
+        Generated hypotheses and experimental rationales must remain scientifically interpretable.
+
+      </div>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        Scientific Decision-Making Challenges
+      </h2>
+
+      <ul>
+
+        <li>
+          <strong>Exploration versus validation:</strong>
+          should the system explore radically new hypotheses or refine existing theories?
+        </li>
+
+        <li>
+          <strong>Scientific curiosity:</strong>
+          determining which anomalies deserve investigation remains intrinsically difficult.
+        </li>
+
+        <li>
+          <strong>Combinatorial experiment selection:</strong>
+          the number of possible experimental interventions grows explosively.
+        </li>
+
+        <li>
+          <strong>Causal ambiguity:</strong>
+          observations may support multiple competing mechanistic explanations.
+        </li>
+
+        <li>
+          <strong>Nonstationary scientific knowledge:</strong>
+          the scientific landscape evolves as new discoveries emerge globally.
+        </li>
+
+        <li>
+          <strong>Transfer across domains:</strong>
+          useful mechanistic abstractions may generalize between scientific disciplines.
+        </li>
+
+        <li>
+          <strong>Recursive experimentation:</strong>
+          the system optimizes not only experiments, but the scientific process itself.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Representative Research Directions
+      </h2>
+
+      <ul>
+
+        <li>
+          Bayesian experimental design.
+        </li>
+
+        <li>
+          Active scientific discovery systems.
+        </li>
+
+        <li>
+          Curiosity-driven and autotelic reinforcement learning.
+        </li>
+
+        <li>
+          Causal discovery and mechanistic inference.
+        </li>
+
+        <li>
+          AI-guided laboratory automation.
+        </li>
+
+        <li>
+          Open-ended learning and autonomous exploration.
+        </li>
+
+        <li>
+          Meta-learning for scientific reasoning.
+        </li>
+
+        <li>
+          Human-AI collaborative scientific systems.
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        Example Scientific References
+      </h2>
+
+      <ul>
+
+        <li>
+          King et al. — The Robot Scientist project.
+        </li>
+
+        <li>
+          Langley et al. — Scientific discovery as machine learning.
+        </li>
+
+        <li>
+          Schmidhuber — Formal theory of curiosity and intrinsic motivation.
+        </li>
+
+        <li>
+          Settles — Active Learning literature.
+        </li>
+
+        <li>
+          Foster et al. — Bayesian experimental design and adaptive experimentation.
+        </li>
+
+        <li>
+          Pearl — Causal inference and structural causal models.
+        </li>
+
+        <li>
+          Autonomous chemistry and self-driving laboratory literature.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+
+    <strong>Scientist AI Perspective.</strong>
+
+    Autonomous scientific discovery represents a shift from task-specific prediction systems toward adaptive epistemic agents capable of generating hypotheses, designing experiments, refining mechanistic theories, and optimizing scientific knowledge acquisition itself. Such systems fundamentally combine reinforcement learning, causal reasoning, adaptive experimentation, uncertainty quantification, and scientific creativity, making them one of the deepest long-term frontiers of Scientist AI.
+
+  </div>
+
+</section>
+  
+  </div>
+
+</body>
+</html>
+  
