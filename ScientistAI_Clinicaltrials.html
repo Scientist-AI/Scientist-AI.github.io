@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientist AI — Clinical trials Experiment Example</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+
+  <script async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+ <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+  
+	<section class="experiment-card">
+
+  <div class="eyebrow">
+    Clinical Trials · Adaptive Precision Medicine
+  </div>
+
+  <h1>
+    Adaptive Oncology Trial for Personalized Immunotherapy
+  </h1>
+
+  <p class="lead">
+    A cancer research hospital conducts an adaptive Phase II clinical trial evaluating four immunotherapy protocols for metastatic lung cancer patients. Each arriving patient presents heterogeneous biomarkers, genetic mutations, prior treatment history, age, and immune response indicators. The objective is not only to maximize overall survival probability, but also to reduce severe toxicities, identify which patient subgroups benefit from specific therapies, and progressively refine treatment allocation throughout the trial. Unlike classical randomized trials with fixed allocation ratios, the protocol dynamically adapts future treatment decisions using accumulated patient outcomes and biomarker information. However, experimentation is heavily constrained: patient outcomes may require several months before becoming observable, ethical rules limit unsafe exploration, cohorts arrive asynchronously across hospitals, and regulators require statistical interpretability and fairness guarantees. The trial therefore becomes a contextual sequential decision problem under uncertainty, where the system must continuously balance patient welfare, scientific discovery, treatment personalization, and long-term statistical reliability.
+  </p>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Experimental Workflow
+      </h2>
+
+      <ul>
+        <li>Recruit eligible patients across participating hospitals.</li>
+
+        <li>Collect contextual patient information and biomarker profiles.</li>
+
+        <li>Assign one of four immunotherapy protocols.</li>
+
+        <li>Monitor toxicity, tumor evolution, and immune response.</li>
+
+        <li>Observe delayed clinical endpoints such as progression-free survival.</li>
+
+        <li>Update uncertainty estimates regarding treatment efficacy.</li>
+
+        <li>Adapt future treatment allocation probabilities.</li>
+
+        <li>Possibly terminate harmful or ineffective treatment arms.</li>
+
+      </ul>
+
+      <div class="tag-list">
+
+        <div class="tag">Contextual Bandits</div>
+
+        <div class="tag">Delayed Feedback</div>
+
+        <div class="tag">Risk-Averse RL</div>
+
+        <div class="tag">Safe Exploration</div>
+
+        <div class="tag">Adaptive Clinical Trials</div>
+
+        <div class="tag">Precision Medicine</div>
+
+      </div>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        RL / Statistical Formalization
+      </h2>
+
+      <p>
+        Let:
+      </p>
+
+      <div class="math-box">
+
+        $$
+        x_t \in \mathcal{X}
+        $$
+
+        denote the contextual patient profile at arrival time $t$.
+
+        <br><br>
+
+        The treatment policy selects:
+
+        $$
+        a_t \in \{1,2,3,4\}
+        $$
+
+        corresponding to one immunotherapy protocol.
+
+        <br><br>
+
+        The delayed patient outcome is modeled as:
+
+        $$
+        y_t = f(x_t, a_t) + \epsilon_t
+        $$
+
+        where:
+
+        <ul>
+          <li>
+            $f(x_t,a_t)$ is the unknown treatment-response function,
+          </li>
+
+          <li>
+            $\epsilon_t$ represents biological and measurement noise.
+          </li>
+        </ul>
+
+        <br>
+
+        The optimization objective combines:
+        <ul>
+          <li>overall survival,</li>
+          <li>toxicity minimization,</li>
+          <li>and uncertainty reduction.</li>
+        </ul>
+
+        <br>
+
+        One possible utility function is:
+
+        $$
+        r_t =
+        \alpha S_t
+        -
+        \beta T_t
+        -
+        \gamma C_t
+        $$
+
+        where:
+
+        <ul>
+          <li>
+            $S_t$: survival-related outcome,
+          </li>
+
+          <li>
+            $T_t$: severe toxicity score,
+          </li>
+
+          <li>
+            $C_t$: treatment cost or burden.
+          </li>
+        </ul>
+
+        <br>
+
+        The adaptive objective becomes:
+
+        $$
+        \max_{\pi}
+        \mathbb{E}
+        \left[
+        \sum_{t=1}^{T}
+        r_t
+        \right]
+        $$
+
+        under ethical and statistical constraints.
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Experimental Constraints
+      </h2>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Delayed Feedback Constraint
+        </div>
+
+        Progression-free survival and long-term toxicity may require 3–12 months before reliable evaluation.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Ethical Constraint
+        </div>
+
+        Excessively harmful or clearly inferior treatments cannot continue to be assigned purely for exploration purposes.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Cohort Recruitment Constraint
+        </div>
+
+        Patients arrive progressively and unevenly across hospitals and demographic groups.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Partial Observability
+        </div>
+
+        True tumor progression and immune system dynamics remain partially hidden.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Fairness Constraint
+        </div>
+
+        The trial must avoid systematically disadvantaging demographic or genetic subgroups.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Privacy Constraint
+        </div>
+
+        Genomic and medical records require strict confidentiality and regulatory compliance.
+
+      </div>
+
+      <div class="constraint">
+
+        <div class="constraint-title">
+          Statistical Validity Constraint
+        </div>
+
+        Regulators require confidence intervals, interpretable endpoints, and controlled false discovery rates.
+
+      </div>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        Scientific Decision-Making Challenges
+      </h2>
+
+      <ul>
+
+        <li>
+          <strong>Exploration versus patient welfare:</strong>
+          learning requires experimentation, yet experimentation directly affects patient survival.
+        </li>
+
+        <li>
+          <strong>Heterogeneous responses:</strong>
+          different biomarker subgroups may respond to entirely different therapies.
+        </li>
+
+        <li>
+          <strong>Delayed information:</strong>
+          treatment efficacy may remain uncertain for months.
+        </li>
+
+        <li>
+          <strong>Safety-aware optimization:</strong>
+          maximizing efficacy alone is clinically unacceptable if toxicity becomes excessive.
+        </li>
+
+        <li>
+          <strong>Distribution shift:</strong>
+          future patient populations may differ from early trial cohorts.
+        </li>
+
+        <li>
+          <strong>Causal uncertainty:</strong>
+          observed outcomes may depend on latent biological mechanisms not directly measured.
+        </li>
+
+        <li>
+          <strong>Scientific discovery:</strong>
+          beyond treatment allocation, researchers seek mechanistic understanding of immune response dynamics.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="block">
+
+      <h2>
+        Representative Research Directions
+      </h2>
+
+      <ul>
+
+        <li>
+          Contextual bandits for adaptive treatment assignment.
+        </li>
+
+        <li>
+          Delayed-feedback reinforcement learning.
+        </li>
+
+        <li>
+          Safe exploration in healthcare.
+        </li>
+
+        <li>
+          Risk-sensitive and constrained RL.
+        </li>
+
+        <li>
+          Adaptive dose escalation.
+        </li>
+
+        <li>
+          Bayesian adaptive clinical trial design.
+        </li>
+
+        <li>
+          Offline RL for retrospective patient trajectories.
+        </li>
+
+        <li>
+          Causal reinforcement learning for personalized medicine.
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="block">
+
+      <h2>
+        Example Scientific References
+      </h2>
+
+      <ul>
+
+        <li>
+          Robbins (1952) — Sequential design of experiments.
+        </li>
+
+        <li>
+          Lai & Robbins (1985) — Asymptotically efficient adaptive allocation rules.
+        </li>
+
+        <li>
+          Varatharajah et al. — Contextual-bandit-based clinical trial optimization.
+        </li>
+
+        <li>
+          Kato et al. — Adaptive experimental design via contextual bandits.
+        </li>
+
+        <li>
+          Matsuura et al. — Deep reinforcement learning for dose escalation.
+        </li>
+
+        <li>
+          Chick & Zoumpoulis — Personalized treatment strategies with delayed outcomes.
+        </li>
+
+        <li>
+          Eckardt et al. — Reinforcement learning for precision oncology.
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+
+    <strong>Scientist AI Perspective.</strong>
+
+    Adaptive clinical trials illustrate how experimental medicine naturally combines contextual decision-making, delayed feedback, constrained exploration, causal uncertainty, safety-critical optimization, and statistical inference. Such systems require far richer mathematical foundations than static prediction alone, and represent one of the clearest real-world motivations for Scientist AI.
+
+  </div>
+
+</section>
+  
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scientist AI — Biology Experiment Example</title>
+
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+
+  <script async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+ <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <section class="experiment-card">
+
+      <div class="eyebrow">Biology · Adaptive Experimentation</div>
+
+      <h1>Directed Evolution of a Plastic-Degrading Enzyme</h1>
+
+      <p class="lead">
+        A synthetic biology laboratory seeks to improve the catalytic efficiency of a PETase enzyme capable of degrading polyethylene terephthalate (PET) plastic. Starting from an existing enzyme sequence, researchers iteratively generate mutations, synthesize candidate proteins, and experimentally measure degradation efficiency, thermal stability, and unintended side effects. The objective is not merely to maximize catalytic activity, but to discover variants that remain stable at industrial temperatures, preserve folding integrity, and can realistically scale to large bioreactors. Each experimental round is expensive and constrained: only 96 protein variants can be evaluated simultaneously on a laboratory plate, synthesis requires approximately 48 hours, thermal stress assays consume limited robotic resources, and certain mutation combinations are biologically unsafe or structurally invalid. The experiment therefore becomes a sequential adaptive decision problem under uncertainty, where scientists must continuously balance exploitation of promising enzyme families against exploration of poorly understood regions of the protein fitness landscape.
+      </p>
+
+      <div class="grid">
+
+        <div class="block">
+          <h2>Experimental Workflow</h2>
+
+          <ul>
+            <li>Select candidate mutations from previous experimental observations.</li>
+            <li>Synthesize enzyme variants using automated DNA assembly.</li>
+            <li>Allocate variants to 96-well experimental plates.</li>
+            <li>Run degradation assays under multiple temperature conditions.</li>
+            <li>Measure catalytic efficiency, folding stability, and toxicity indicators.</li>
+            <li>Update probabilistic estimates of the latent protein fitness landscape.</li>
+            <li>Design the next adaptive experimental batch.</li>
+          </ul>
+
+          <div class="tag-list">
+            <div class="tag">Batch Experimentation</div>
+            <div class="tag">Bayesian Optimization</div>
+            <div class="tag">Safe Exploration</div>
+            <div class="tag">Delayed Feedback</div>
+            <div class="tag">Combinatorial Search</div>
+          </div>
+        </div>
+
+        <div class="block">
+          <h2>RL / Statistical Formalization</h2>
+
+          <p>
+            Let $x \in \mathcal{X}$ denote an enzyme sequence, where each candidate corresponds to a combination of amino-acid mutations.
+          </p>
+
+          <div class="math-box">
+            $$
+            x_t = (m_1, m_2, ..., m_k)
+            $$
+
+            $$
+            y_t = f(x_t) + \epsilon_t
+            $$
+
+            where:
+
+            $$
+            f(x_t)
+            $$
+
+            represents the unknown biochemical fitness function combining:
+
+            $$
+            f(x) = \alpha D(x) + \beta S(x) - \gamma T(x)
+            $$
+
+            with:
+            <ul>
+              <li>$D(x)$: PET degradation efficiency,</li>
+              <li>$S(x)$: thermal stability,</li>
+              <li>$T(x)$: toxicity or instability penalties.</li>
+            </ul>
+
+            The laboratory selects batches:
+
+            $$
+            B_t = \{x_t^{(1)}, ..., x_t^{(96)}\}
+            $$
+
+            under resource constraints.
+
+            The adaptive objective is:
+
+            $$
+            \max_{\pi} \mathbb{E}\left[\sum_{t=1}^{T} f(x_t)\right]
+            $$
+
+            while respecting safety and experimental feasibility constraints.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="grid">
+
+        <div class="block">
+          <h2>Experimental Constraints</h2>
+
+          <div class="constraint">
+            <div class="constraint-title">Batch Capacity Constraint</div>
+            Only 96 protein variants can be evaluated simultaneously due to standard laboratory plate formats.
+          </div>
+
+          <div class="constraint">
+            <div class="constraint-title">Temporal Constraint</div>
+            DNA synthesis and protein expression require approximately 48 hours before measurements become available.
+          </div>
+
+          <div class="constraint">
+            <div class="constraint-title">Robotic Resource Constraint</div>
+            Thermal stability assays use a limited number of robotic incubators shared across multiple projects.
+          </div>
+
+          <div class="constraint">
+            <div class="constraint-title">Safety Constraint</div>
+            Certain mutation combinations may create unstable or biologically hazardous proteins and must never be synthesized.
+          </div>
+
+          <div class="constraint">
+            <div class="constraint-title">Partial Observability</div>
+            The internal protein folding mechanisms and molecular interactions are not directly observable.
+          </div>
+
+          <div class="constraint">
+            <div class="constraint-title">Budget Constraint</div>
+            Each synthesis-and-assay cycle costs approximately €4,000–€12,000 depending on assay complexity.
+          </div>
+
+        </div>
+
+        <div class="block">
+          <h2>Scientific Decision-Making Challenges</h2>
+
+          <ul>
+            <li>
+              <strong>Exploration versus exploitation:</strong>
+              should the laboratory refine already promising enzyme families or test radically different mutations?
+            </li>
+
+            <li>
+              <strong>Multi-objective optimization:</strong>
+              catalytic efficiency alone is insufficient if thermal stability collapses.
+            </li>
+
+            <li>
+              <strong>Delayed information:</strong>
+              experimental outcomes arrive several days after decisions are made.
+            </li>
+
+            <li>
+              <strong>Combinatorial explosion:</strong>
+              the mutation space grows exponentially with sequence length.
+            </li>
+
+            <li>
+              <strong>Distribution shift:</strong>
+              laboratory performance may not transfer to industrial reactors.
+            </li>
+
+            <li>
+              <strong>Scientific discovery:</strong>
+              beyond optimization, researchers seek mechanistic understanding of why certain mutations improve degradation.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-note">
+        <strong>Scientist AI Perspective.</strong>
+        This experiment illustrates how modern biology naturally becomes a constrained sequential decision problem involving adaptive experimentation, uncertainty quantification, safety-aware optimization, delayed feedback, and scientific hypothesis refinement. Such workflows lie far beyond static supervised learning and represent a concrete operational target for future Scientist AI systems.
+      </div>
+
+    </section>
+	
+	</div>
+	
+  
+
+</body>
+</html>
