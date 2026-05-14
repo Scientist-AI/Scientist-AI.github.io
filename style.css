@@ -1,0 +1,141 @@
+body {
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #1f2937;
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.7;
+    }
+
+	a {
+      display: block;
+      padding: 20px;
+      background-color: lightblue;
+      border-radius: 18px;
+      text-decoration: none;
+    }
+ 
+    a:hover {
+      background-color: blue;
+    }
+	
+    .container {
+      max-width: 1150px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+
+    .experiment-card {
+      background: white;
+      border-radius: 18px;
+      padding: 42px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .eyebrow {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: #374151;
+      margin-bottom: 34px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 26px;
+      margin-top: 30px;
+    }
+
+    .block {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.15rem;
+      color: #111827;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .constraint {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .constraint:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .constraint-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .math-box {
+      background: #ffffff;
+      border-left: 4px solid #2563eb;
+      padding: 18px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .footer-note {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+      color: #4b5563;
+    }
+
+    code {
+      background: #eef2ff;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+    }
